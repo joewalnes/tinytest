@@ -1,5 +1,4 @@
-/**
- * TinyTest: A really really really tiny and simple no-hassle C unit-testing framework.
+/* TinyTest: A really really really tiny and simple no-hassle C unit-testing framework.
  *
  * Features:
  *   - No library dependencies. Not even itself. Just a header file.
@@ -40,15 +39,15 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-// Main assertion method
+/* Main assertion method */
 #define ASSERT(msg, expression) if (!tt_assert(__FILE__, __LINE__, msg, #expression, expression ? true : false)) return
 
-// Convenient assertion methods
-// TODO: Generate readable error messages for assert_equals or assert_str_equals
+/* Convenient assertion methods */
+/* TODO: Generate readable error messages for assert_equals or assert_str_equals */
 #define ASSERT_EQUALS(expected, actual) ASSERT(#actual, expected == actual)
 #define ASSERT_STRING_EQUALS(expected, actual) ASSERT(#actual, strcmp(expected,actual) == 0)
 
-// Run a test() function
+/* Run a test() function */
 #define RUN(test_function) tt_execute(#test_function, test_function)
 #define TEST_REPORT() tt_report()
 
