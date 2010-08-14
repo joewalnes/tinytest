@@ -2,6 +2,8 @@
  *
  * Features:
  *   - No library dependencies. Not even itself. Just a header file.
+ *   - Simple ANSI C. Should work with virtually ever C or C++ compiler on
+ *     virtually any platform.
  *   - Reports assertion failures, including expressions and line numbers.
  *   - Stops test on first failed assertion.
  *   - ANSI color output for maximum visibility.
@@ -70,7 +72,8 @@ const char* tt_current_expression = NULL;
 const char* tt_current_file = NULL;
 int tt_current_line = 0;
 
-void tt_execute(const char* name, void (*test_function)()) {
+void tt_execute(const char* name, void (*test_function)())
+{
   tt_current_test_failed = false;
   test_function();
   if (tt_current_test_failed) {
@@ -82,7 +85,8 @@ void tt_execute(const char* name, void (*test_function)()) {
   }
 }
 
-bool tt_assert(const char* file, int line, const char* msg, const char* expression, bool pass) {
+bool tt_assert(const char* file, int line, const char* msg, const char* expression, bool pass)
+{
   tt_current_msg = msg;
   tt_current_expression = expression;
   tt_current_file = file;
@@ -91,7 +95,8 @@ bool tt_assert(const char* file, int line, const char* msg, const char* expressi
   return pass;
 }
 
-int tt_report(void) {
+int tt_report(void)
+{
   if (tt_fails) {
     printf("%c%sFAILED%c%s (passed:%d, failed:%d, total:%d)\n", 
       TT_COLOR_CODE, TT_COLOR_RED, TT_COLOR_CODE, TT_COLOR_RESET,
