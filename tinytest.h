@@ -33,6 +33,9 @@
  * 2010, -Joe Walnes <joe@walnes.com> http://joewalnes.com
  */
 
+#ifndef _TINYTEST_INCLUDED
+#define _TINYTEST_INCLUDED
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -42,8 +45,8 @@
 
 // Convenient assertion methods
 // TODO: Generate readable error messages for assert_equals or assert_str_equals
-#define ASSERT_EQUALS(expected, actual) assert(#actual, expected == actual)
-#define ASSERT_STRING_EQUALS(expected, actual) assert(#actual, strcmp(expected,actual) == 0)
+#define ASSERT_EQUALS(expected, actual) ASSERT(#actual, expected == actual)
+#define ASSERT_STRING_EQUALS(expected, actual) ASSERT(#actual, strcmp(expected,actual) == 0)
 
 // Run a test() function
 #define RUN(test_function) tt_execute(#test_function, test_function)
@@ -96,3 +99,5 @@ int tt_report() {
     return 0;
   }
 }
+
+#endif
