@@ -11,15 +11,21 @@
  *
  *    #include "tinytest.h"
  *    #include "mylib.h"
- *    void test_sheep() {
+ *
+ *    void test_sheep(void)
+ *    {
  *      ASSERT("Sheep are cool", are_sheep_cool());
  *      ASSERT_EQUALS(4, sheep.legs);
  *    }
- *    void test_cheese() {
+ *
+ *    void test_cheese(void)
+ *    {
  *      ASSERT("Cheese is tangy", cheese.tanginess > 0);
  *      ASSERT_STRING_EQUALS("Wensleydale", cheese.name);
  *    }
- *    int main() {
+ *
+ *    int main(void)
+ *    {
  *      RUN(test_sheep);
  *      RUN(test_cheese);
  *      return TEST_REPORT();
@@ -85,7 +91,7 @@ bool tt_assert(const char* file, int line, const char* msg, const char* expressi
   return pass;
 }
 
-int tt_report() {
+int tt_report(void) {
   if (tt_fails) {
     printf("%c%sFAILED%c%s (passed:%d, failed:%d, total:%d)\n", 
       TT_COLOR_CODE, TT_COLOR_RED, TT_COLOR_CODE, TT_COLOR_RESET,

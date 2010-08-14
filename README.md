@@ -17,15 +17,21 @@ Example Usage
 
     #include "tinytest.h"
     #include "mylib.h"
-    void test_sheep() {
+    
+    void test_sheep(void)
+    {
       ASSERT("Sheep are cool", are_sheep_cool());
       ASSERT_EQUALS(4, sheep.legs);
     }
-    void test_cheese() {
+    
+    void test_cheese(void)
+    {
       ASSERT("Cheese is tangy", cheese.tanginess > 0);
       ASSERT_STRING_EQUALS("Wensleydale", cheese.name);
     }
-    int main() {
+    
+    int main(void)
+    {
       RUN(test_sheep);
       RUN(test_cheese);
       return TEST_REPORT();
