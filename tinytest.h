@@ -18,7 +18,7 @@
  *    }
  *    void test_cheese() {
  *      ASSERT("Cheese is tangy", cheese.tanginess > 0);
- *      ASSERT_STRING_EQUALS"Wensleydale", cheese.name);
+ *      ASSERT_STRING_EQUALS("Wensleydale", cheese.name);
  *    }
  *    int main() {
  *      RUN(test_sheep);
