@@ -48,15 +48,15 @@
 #include <stdlib.h>
 
 /* Main assertion method */
-#define ASSERT(msg, expression) if (!tt_assert(__FILE__, __LINE__, msg, #expression, expression ? true : false)) return
+#define ASSERT(msg, expression) if (!tt_assert(__FILE__, __LINE__, (msg), (#expression), (expression) ? true : false)) return
 
 /* Convenient assertion methods */
 /* TODO: Generate readable error messages for assert_equals or assert_str_equals */
-#define ASSERT_EQUALS(expected, actual) ASSERT(#actual, expected == actual)
-#define ASSERT_STRING_EQUALS(expected, actual) ASSERT(#actual, strcmp(expected,actual) == 0)
+#define ASSERT_EQUALS(expected, actual) ASSERT((#actual), (expected) == (actual))
+#define ASSERT_STRING_EQUALS(expected, actual) ASSERT((#actual), strcmp((expected),(actual)) == 0)
 
 /* Run a test() function */
-#define RUN(test_function) tt_execute(#test_function, test_function)
+#define RUN(test_function) tt_execute((#test_function), (test_function))
 #define TEST_REPORT() tt_report()
 
 #define TT_COLOR_CODE 0x1B
