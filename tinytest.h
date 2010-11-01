@@ -105,7 +105,7 @@ int tt_report(void)
   } else {
     printf("%c%sPASSED%c%s (total:%d)\n", 
       TT_COLOR_CODE, TT_COLOR_GREEN, TT_COLOR_CODE, TT_COLOR_RESET,
-      tt_passes, tt_fails, tt_passes + tt_fails);
+      tt_passes);
     return 0;
   }
 }
