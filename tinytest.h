@@ -98,14 +98,14 @@ bool tt_assert(const char* file, int line, const char* msg, const char* expressi
 int tt_report(void)
 {
   if (tt_fails) {
-    printf("%c%sFAILED%c%s (passed:%d, failed:%d, total:%d)\n", 
+    printf("%c%sFAILED%c%s [%s] (passed:%d, failed:%d, total:%d)\n",
       TT_COLOR_CODE, TT_COLOR_RED, TT_COLOR_CODE, TT_COLOR_RESET,
-      tt_passes, tt_fails, tt_passes + tt_fails);
+      tt_current_file, tt_passes, tt_fails, tt_passes + tt_fails);
     return -1;
   } else {
-    printf("%c%sPASSED%c%s (total:%d)\n", 
+    printf("%c%sPASSED%c%s [%s] (total:%d)\n", 
       TT_COLOR_CODE, TT_COLOR_GREEN, TT_COLOR_CODE, TT_COLOR_RESET,
-      tt_passes);
+      tt_current_file, tt_passes);
     return 0;
   }
 }
