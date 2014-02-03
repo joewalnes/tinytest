@@ -40,7 +40,7 @@ Example Usage
 
 To run the tests, compile the tests as a binary and run it.
 
-*2010, -Joe Walnes <joe@walnes.com> http://joewalnes.com*
+*2010-2014, -Joe Walnes <joe@walnes.com> http://joewalnes.com*
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/joewalnes/tinytest/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
