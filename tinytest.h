@@ -44,11 +44,10 @@
 #define _TINYTEST_INCLUDED
 
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
 
 /* Main assertion method */
-#define ASSERT(msg, expression) if (!tt_assert(__FILE__, __LINE__, (msg), (#expression), (expression) ? true : false)) return
+#define ASSERT(msg, expression) if (!tt_assert(__FILE__, __LINE__, (msg), (#expression), (expression) ? 1 : 0)) return
 
 /* Convenient assertion methods */
 /* TODO: Generate readable error messages for assert_equals or assert_str_equals */
@@ -66,7 +65,7 @@
 
 int tt_passes = 0;
 int tt_fails = 0;
-bool tt_current_test_failed = false;
+int tt_current_test_failed = 0;
 const char* tt_current_msg = NULL;
 const char* tt_current_expression = NULL;
 const char* tt_current_file = NULL;
@@ -74,7 +73,7 @@ int tt_current_line = 0;
 
 void tt_execute(const char* name, void (*test_function)())
 {
-  tt_current_test_failed = false;
+  tt_current_test_failed = 0;
   test_function();
   if (tt_current_test_failed) {
     printf("failure: %s:%d: In test %s():\n    %s (%s)\n",
@@ -85,7 +84,7 @@ void tt_execute(const char* name, void (*test_function)())
   }
 }
 
-bool tt_assert(const char* file, int line, const char* msg, const char* expression, bool pass)
+int tt_assert(const char* file, int line, const char* msg, const char* expression, int pass)
 {
   tt_current_msg = msg;
   tt_current_expression = expression;
