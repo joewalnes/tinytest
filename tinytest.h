@@ -2,7 +2,7 @@
  *
  * Features:
  *   - No library dependencies. Not even itself. Just a header file.
- *   - Simple ANSI C. Should work with virtually ever C or C++ compiler on
+ *   - Simple ANSI C. Should work with virtually every C or C++ compiler on
  *     virtually any platform.
  *   - Reports assertion failures, including expressions and line numbers.
  *   - Stops test on first failed assertion.
